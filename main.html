@@ -6,200 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="main.css" />
+
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="modal.css" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            padding: 0;
-        }
+    <script src="jquery-3.6.1.js"></script>
 
-        .login_btn {
-            background-color: #1DC078;
-            border-radius: 5px;
-            color: white;
-            padding: 5px 10px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .main_container{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        nav {
-            width: 100%;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav_container {
-            width: 1200px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 15px;
-        }
-
-        .nav_sub_container {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            height: 100%;
-        }
-
-        .nav_sub_container input {
-            height: 30px;
-            width: 200px;
-            border-radius: 5px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .swiper {
-            height: 350px;
-            width: 100%;
-        }
-        .popular_content_backgournd{
-            width: 100%;
-            background-color: white;
-            display: flex;
-            justify-content: center;
-        }
-        .popular_content_container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 50px 15px;
-        }
-
-        .sub_content_background {
-            width: 100%;
-            background-color: #F9F9F9;
-            display: flex;
-            justify-content: center;
-        }
-
-        .sub_content_container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 50px 15px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .content_box{
-            width: 250px;
-            height: 240px;
-        }
-
-        .content_box_wrap{
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .image_box{
-            width: 100%;
-            height: 140px;
-            border-radius: 5px;
-            border: 1px solid #F9F9F9;
-            background-color: #F9F9F9;
-            margin-bottom: 8px;
-        }
-
-        .content_title{
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .content_text{
-            font-size: 16px;
-            color: #989898;
-        }
-
-        .recent_container{
-            width: 655px;
-            height: 545px;
-            background-color: white;
-            border-radius: 10px;
-            border: 1px solid #DEDEDE;
-            padding: 25px;
-        }
-
-        .offline_popular_place_container{
-            width: 395px;
-            height: 545px;
-            background-color: white;
-            border-radius: 10px;
-            border: 1px solid #DEDEDE;
-            padding: 25px;
-        }
-
-        .place_image_box{
-            width: 100%;
-            height: 40%;
-            background-color:#dfdfdf;
-        }
-
-        .place_image_box > img {
-            width: 100%;
-            height: 100%;
-            border-radius: 5px;
-        }
-        footer{
-            width: 100%;
-            height: 160px;
-            background-color: #6B6B6B;
-        }
-
-        .review_box p{
-            font-size: 14px;
-            color: #707070;
-            margin: 1.25em 0;
-        }
-
-        .review_box h2{
-            margin: 0;
-        }
-
-        .place_info_box > div{
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .place_info_box > div > p:nth-child(1){
-            font-size: 20px;
-            font-weight: 500;
-        }
-
-        .place_info_box > div > p:nth-child(2){
-            font-size: 14px;
-            color: #707070;
-        }
-
-        .place_info_box > div > p{
-            margin: 16px 0 8px 0;
-        }
-
-        .place_info_box > p {
-            margin: 0;
-            font-size: 14px;
-            color: #707070;
-        }
-
-        .line{
-            width: 100%;
-            border-top: 1px solid #d3d3d3;
-            margin: 1em 0;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -214,12 +29,13 @@
                         <input placeholder="검색하기" />
                     </div>
                     <div>
-                        <button class="login_btn">로그인</button>
+                        <button id="login_btn">로그인</button>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="swiper">
+
+        <div class="swiper first-swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -230,99 +46,203 @@
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
         </div>
+
+
         <div class="popular_content_backgournd">
             <div class="popular_content_container">
                 <div>
                     <h2>최근 인기 글</h2>
-                </div> 
-                <div class="content_box_wrap">
-                    <div class="content_box">
-                        <div class="image_box"></div>
-                        <div class="content_title">개발자 원어민 영어 회화 과외</div>
-                        <div>
-                            <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
-                                외에 관심 있는 사람있을까요? 전 개발자
-                                로 일했고 한국어 보다 영어를 잘하는 ...</p>
+                </div>
+                <div style="position:relative;">
+                    <div class="swiper third-swiper" style="position:static">
+                        <div class="swiper-wrapper content_box_wrap">
+                            <!-- Slides -->
+                            <div class="content_box swiper-slide">
+                                <div class="image_box"></div>
+                                <div class="content_title">개발자 원어민 영어 회화 과외</div>
+                                <div>
+                                    <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
+                                        외에 관심 있는 사람있을까요? 전 개발자
+                                        로 일했고 한국어 보다 영어를 잘하는 ...</p>
+                                </div>
+                            </div>
+
+                            <div class="content_box swiper-slide">
+                                <div class="image_box"></div>
+                                <div class="content_title">개발자 원어민 영어 회화 과외</div>
+                                <div>
+                                    <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
+                                        외에 관심 있는 사람있을까요? 전 개발자
+                                        로 일했고 한국어 보다 영어를 잘하는 ...</p>
+                                </div>
+                            </div>
+
+                            <div class="content_box swiper-slide">
+                                <div class="image_box"></div>
+                                <div class="content_title">개발자 원어민 영어 회화 과외</div>
+                                <div>
+                                    <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
+                                        외에 관심 있는 사람있을까요? 전 개발자
+                                        로 일했고 한국어 보다 영어를 잘하는 ...</p>
+                                </div>
+                            </div>
+
+                            <div class="content_box swiper-slide">
+                                <div class="image_box"></div>
+                                <div class="content_title">개발자 원어민 영어 회화 과외</div>
+                                <div>
+                                    <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
+                                        외에 관심 있는 사람있을까요? 전 개발자
+                                        로 일했고 한국어 보다 영어를 잘하는 ...</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="content_box">
-                        <div class="image_box"></div>
-                        <div class="content_title">개발자 원어민 영어 회화 과외</div>
-                        <div>
-                            <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
-                                외에 관심 있는 사람있을까요? 전 개발자
-                                로 일했고 한국어 보다 영어를 잘하는 ...</p>
-                        </div>
-                    </div>
-                    <div class="content_box">
-                        <div class="image_box"></div>
-                        <div class="content_title">개발자 원어민 영어 회화 과외</div>
-                        <div>
-                            <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
-                                외에 관심 있는 사람있을까요? 전 개발자
-                                로 일했고 한국어 보다 영어를 잘하는 ...</p>
-                        </div>
-                    </div>
-                    <div class="content_box">
-                        <div class="image_box"></div>
-                        <div class="content_title">개발자 원어민 영어 회화 과외</div>
-                        <div>
-                            <p class="content_text">안녕하세요! 혹시 개발관련 영어회화 과
-                                외에 관심 있는 사람있을까요? 전 개발자
-                                로 일했고 한국어 보다 영어를 잘하는 ...</p>
-                        </div>
-                    </div>
-                </div> 
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
             </div>
         </div>
-        
-        <div class="sub_content_background">
-            <div class="sub_content_container">
-                <div>
-                    <div>
-                        <h2>최근 모집 글</h2>
-                    </div>
-                    <div class="recent_container">
+    </div>
 
-                    </div>
-                </div>
+    <div class="sub_content_background">
+        <div class="sub_content_container">
+            <div>
                 <div>
-                    <div>
-                        <h2>오프라인 인기 장소</h2>
-                    </div>
-                    <div class="offline_popular_place_container">
-                        <div class="place_image_box">
-                            <img src="프라임스카.jpg"/>
-                        </div>
-                        <div class="place_info_box">
-                            <div>
-                                <p>프라임 스터디 카페 한남대점</p>
-                                <p>4.91/5</p>
+                    <h2>최근 모집 글</h2>
+                </div>
+                <div class="recent_container">
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2>오프라인 인기 장소</h2>
+                </div>
+
+
+                <div class="offline_popular_place_container">
+                    <div class="swiper second-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="width: 100%; height: 100%;">
+                                <div class="place_image_box">
+                                    <img src="프라임스카.jpg" />
+                                </div>
+                                <div class="place_info_box">
+                                    <div>
+                                        <p>프라임 스터디 카페 한남대점</p>
+                                        <p>4.91/5</p>
+                                    </div>
+                                    <p>대전 동구 동산초교로34번길 1 3층</p>
+                                </div>
+                                <div class="line"></div>
+                                <div class="review_box">
+                                    <h2>Review</h2>
+                                    <p>시설 좋구 사장님도 친절하셔요</p>
+                                    <p>커피도 맛있고 쾌적하고 집중도 잘 되서 좋아요!</p>
+                                    <p>벌써 1달이 지나고 2달째네요!! 집에서만 공부하...</p>
+                                    <p>체고체고</p>
+                                    <p>시설 좋구 사장님도 친절하셔요</p>
+                                </div>
                             </div>
-                            <p>대전 동구 동산초교로34번길 1 3층</p>
+
+                            <div class="swiper-slide" style="width: 100%; height: 100%;">
+                                <div class="place_image_box">
+                                    <img src="프라임스카.jpg" />
+                                </div>
+                                <div class="place_info_box">
+                                    <div>
+                                        <p>프라임 스터디 카페</p>
+                                        <p>4.91/5</p>
+                                    </div>
+                                    <p>대전 동구 동산초교로34번길 1 3층</p>
+                                </div>
+                                <div class="line"></div>
+                                <div class="review_box">
+                                    <h2>Review</h2>
+                                    <p>시설 좋구 사장님도 친절하셔요</p>
+                                    <p>커피도 맛있고 쾌적하고 집중도 잘 되서 좋아요!</p>
+                                    <p>벌써 1달이 지나고 2달째네요!! 집에서만 공부하...</p>
+                                    <p>체고체고</p>
+                                    <p>시설 좋구 사장님도 친절하셔요</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="line"></div> 
-                        <div class="review_box">
-                            <h2>Review</h2>
-                            <p>시설 좋구 사장님도 친절하셔요</p>
-                            <p>커피도 맛있고 쾌적하고 집중도 잘 되서 좋아요!</p>
-                            <p>벌써 1달이 지나고 2달째네요!! 집에서만 공부하...</p>
-                            <p>체고체고</p>
-                            <p>시설 좋구 사장님도 친절하셔요</p>
-                        </div> 
+
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
+    </div>
+    </div>
+    </div>
 
-        <footer>
+    <footer>
 
-        </footer>
+    </footer>
+
+    <div class="modal_overlay">
+        <div style="position: absolute;">
+            <div id="modal_close">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                        fill="#FFFFFF">
+                        <path d="M0 0h24v24H0V0z" fill="none" />
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal_window">
+                <div class="form_container">
+                    <form id="login_form">
+                        <div>
+                            <label for="id_input">아이디</label>
+                            <input id="id_input" name="id" type="text" />
+                        </div>
+                        <div>
+                            <label for="pw_input">비밀번호</label>
+                            <input id="pw_input" name="password" type="text" />
+                        </div>
+                        <div>
+                            <div class="form_submit_btn">로그인</div>
+                        </div>
+                    </form>
+
+                    <form id="register_form">
+                        <div>
+                            <label for="id_input">아이디</label>
+                            <input id="id_input" name="id" type="text" />
+                        </div>
+                        <div>
+                            <label for="pw_input">비밀번호</label>
+                            <input id="pw_input" name="password" type="text" />
+                        </div>
+                        <div>
+                            <label for="email_input">이메일</label>
+                            <input id="email_input" name="email" type="text" />
+                        </div>
+                        <div>
+                            <div class="form_submit_btn" id="register_form_submit">회원가입</div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="register_container">
+                    <div id="move_register_form">회원가입</div>
+                    <div>비밀번호 찾기</div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <script>
-        const swiper = new Swiper('.swiper', {
+        var firstSwiper = new Swiper('.first-swiper', {
             // Optional parameters
-            
             loop: true,
 
             // If we need pagination
@@ -330,17 +250,83 @@
                 el: '.swiper-pagination',
             },
 
-            // Navigation arrows
+            autoplay: {
+                delay: 5000
+            }
+        });
+
+        var secondSwiper = new Swiper('.second-swiper', {
+            // Optional parameters
+            loop: false,
+
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+
+            spaceBetween: 30,
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+
+        var thirdSwiper = new Swiper('.third-swiper', {
+            // Optional parameters
+            loop: true,
+
+            slidesPerView: 4,
+            spaceBetween: 30,
+            freeMode: true,
+
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
 
-            autoplay: {
-                delay: 5000
-            },
         });
     </script>
+
+    <script>
+        //open login modal
+        document.getElementById("login_btn").addEventListener("click", function () {
+            document.getElementsByClassName("modal_overlay")[0].style.display = "flex";
+        });
+
+        //close login modal
+        document.getElementById("modal_close").addEventListener("click", function () {
+            document.getElementsByClassName("modal_overlay")[0].style.display = "none";
+            resetSignForm();
+        });
+
+        //move to register form
+        document.getElementById("move_register_form").addEventListener("click", function () {
+            document.getElementById("login_form").style.display = "none";
+            document.getElementById("register_form").style.display = "flex";
+        });
+
+        //register
+        document.getElementById("register_form_submit").addEventListener("click", function () {
+            let formData = new FormData(document.getElementById("register_form"));
+
+            $.ajax({
+                url: "http://localhost:9050/register",
+                method: "POST",
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: result => console.log(result),
+                error: error => console.log(error)
+            });
+        });
+
+        // reset sign form
+        function resetSignForm() {
+            document.getElementById("login_form").style.display = "flex";
+            document.getElementById("register_form").style.display = "none";
+        }
+    </script>
+
+
 </body>
 
 </html>
